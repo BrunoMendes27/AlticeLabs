@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="data">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Temperature</th>
+      <th>Raining Status</th>
+      <th>Date</th>
+      <th>Network power</th>
+      <th>Altitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of basicTable.data">
+      <td>{{ item.city }}</td>
+      <td>{{ item.temperature }}</td>
+      <td>{{ item.rainingStatus }}</td>
+      <td>{{ item.date | date }}</td>
+      <td>{{ item.networkPower }}</td>
+      <td>{{ item.altitude }}</td>
+    </tr>
+  </tbody>
+</nz-table>

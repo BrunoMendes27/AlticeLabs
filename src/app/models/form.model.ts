@@ -8,3 +8,12 @@ export interface FormItems {
   networkPower: FormControl<number>;
   altitude: FormControl<number>;
 }
+
+export interface WeatherCondition {
+  city: string;
+  temperature: number;
+  rainingStatus: string;
+  date: Date;
+  networkPower: number;
+  altitude: number;
+}

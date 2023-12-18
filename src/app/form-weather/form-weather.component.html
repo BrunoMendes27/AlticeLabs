@@ -51,13 +51,14 @@
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="networkPower"
       >Network Power</nz-form-label
     >
-    <nz-form-control
-      [nzSm]="14"
-      [nzXs]="24"
-      nzErrorTip="The input is not valid Network Power!"
-    >
+    <nz-form-control [nzSm]="14" [nzXs]="24">
       <!-- <input nz-input formControlName="networkPower" id="networkPower" /> -->
-      <nz-slider [nzMin]="1" [nzMax]="5" formControlName="networkPower" />
+      <nz-slider
+        [nzMin]="1"
+        [nzMax]="5"
+        formControlName="networkPower"
+        [maxlength]="100"
+      />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
