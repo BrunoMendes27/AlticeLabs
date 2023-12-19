@@ -40,11 +40,14 @@ export class FormWeatherComponent {
 
     this.validateForm = this.form.group({
       city: ['', [Validators.required]],
-      temperature: [0, [Validators.required]],
+      temperature: [
+        0,
+        [Validators.required, Validators.pattern(/^-?\d*\.?\d*$/)],
+      ],
       rainingStatus: ['', [Validators.required]],
       date: [new Date(), [Validators.required]],
       networkPower: [1, [Validators.required]],
-      altitude: [0.0, [Validators.required]],
+      altitude: [0.0, [Validators.required, Validators.pattern(/^-?\d+$/)]],
     });
   }
 

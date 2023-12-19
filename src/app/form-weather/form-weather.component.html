@@ -75,7 +75,9 @@
   </nz-form-item>
   <nz-form-item nz-row class="btn-submit">
     <nz-form-control [nzSpan]="14" [nzOffset]="6">
-      <button nz-button nzType="primary">Submit</button>
+      <button nz-button nzType="primary" [disabled]="validateForm.invalid">
+        Submit
+      </button>
     </nz-form-control>
   </nz-form-item>
 </form>
