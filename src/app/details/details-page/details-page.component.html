@@ -1,0 +1,34 @@
+<nz-card [nzTitle]="cardTitle">
+  <div nz-row>
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>City</h4>
+      <span>{{ weatherDetails?.city }}</span>
+    </div>
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>Temperature</h4>
+      <span>{{ weatherDetails?.temperature }} ºC</span>
+    </div>
+
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>Date</h4>
+      <span>{{ weatherDetails?.date | date }}</span>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>Raning Status</h4>
+      <span>{{ weatherDetails?.rainingStatus }}</span>
+    </div>
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>Altitude</h4>
+      <span>{{ weatherDetails?.altitude }}</span>
+    </div>
+
+    <div nz-col nzSpan="8" class="details-item">
+      <h4>Network Status</h4>
+      <span networkStatus [value]="weatherDetails?.networkPower">{{
+        weatherDetails?.networkPower
+      }}</span>
+    </div>
+  </div>
+</nz-card>

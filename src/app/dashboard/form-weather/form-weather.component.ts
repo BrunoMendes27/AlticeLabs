@@ -6,13 +6,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { FormItems } from '../models/form.model';
+import { FormItems } from '../../models/form.model';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzI18nService, en_US, pt_PT } from 'ng-zorro-antd/i18n';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { WeatherService } from '../services/weather.service';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'weather-form',

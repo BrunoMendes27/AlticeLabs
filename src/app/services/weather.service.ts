@@ -14,6 +14,8 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
+  private apiUrl =
+    'https://crudcrud.com/api/3699a209aca54886913baed29e3a2c53/weather';
   private weatherData = new BehaviorSubject<WeatherCondition[]>([]);
 
   constructor(private readonly http: HttpClient) {
@@ -32,18 +34,17 @@ export class WeatherService {
       altitude: weatherCondtion.controls.altitude.value,
     };
 
-    return this.http
-      .post<WeatherCondition>(
-        'https://crudcrud.com/api/d7d0ad4c19c341578b9b272ee2d0d278/weather',
-        weatherData
-      )
-      .pipe(
-        tap(() =>
-          this.getData().subscribe((item) => this.weatherData.next(item))
-        ),
-        map((item) => item != null),
-        catchError(() => of(false))
-      );
+    return this.http.post<WeatherCondition>(this.apiUrl, weatherData).pipe(
+      tap(() =>
+        this.getData().subscribe((item) => this.weatherData.next(item))
+      ),
+      map((item) => item != null),
+      catchError(() => of(false))
+    );
+  }
+
+  getWeatherDetails(id: string): Observable<WeatherCondition> {
+    return this.http.get<WeatherCondition>(this.getWeatherDetailsUrl(id));
   }
 
   getWeatherData(): Observable<WeatherCondition[]> {
@@ -51,8 +52,10 @@ export class WeatherService {
   }
 
   private getData(): Observable<WeatherCondition[]> {
-    return this.http.get<WeatherCondition[]>(
-      'https://crudcrud.com/api/d7d0ad4c19c341578b9b272ee2d0d278/weather'
-    );
+    return this.http.get<WeatherCondition[]>(this.apiUrl);
+  }
+
+  private getWeatherDetailsUrl(id: string): string {
+    return `${this.apiUrl}/${id}`;
   }
 }

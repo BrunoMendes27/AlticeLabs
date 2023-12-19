@@ -10,6 +10,7 @@ export interface FormItems {
 }
 
 export interface WeatherCondition {
+  _id?: string;
   city: string;
   temperature: number;
   rainingStatus: string;
