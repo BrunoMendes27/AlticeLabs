@@ -1,1 +1,11 @@
+<nz-page-header>
+  <nz-page-header-title>Altice Labs Tech Challenge</nz-page-header-title>
+  <nz-page-header-extra>
+    <nz-space>
+      <button *nzSpaceItem nz-button (click)="changeLanguage()">
+        {{ "changeLanguage" | translate }}
+      </button>
+    </nz-space>
+  </nz-page-header-extra>
+</nz-page-header>
 <router-outlet></router-outlet>

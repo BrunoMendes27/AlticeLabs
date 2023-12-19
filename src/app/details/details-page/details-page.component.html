@@ -1,31 +1,33 @@
-<nz-card [nzTitle]="cardTitle">
+<nz-card [nzTitle]="'information' | translate">
   <div nz-row>
     <div nz-col nzSpan="8" class="details-item">
-      <h4>City</h4>
+      <h4>{{ "city" | translate }}</h4>
       <span>{{ weatherDetails?.city }}</span>
     </div>
     <div nz-col nzSpan="8" class="details-item">
-      <h4>Temperature</h4>
-      <span>{{ weatherDetails?.temperature }} ºC</span>
+      <h4>{{ "temperature" | translate }}</h4>
+      <span
+        >{{ weatherDetails?.temperature }} {{ temperatureUnit$ | async }}</span
+      >
     </div>
 
     <div nz-col nzSpan="8" class="details-item">
-      <h4>Date</h4>
-      <span>{{ weatherDetails?.date | date }}</span>
+      <h4>{{ "date" | translate }}</h4>
+      <span>{{ weatherDetails?.date | date : "long" }}</span>
     </div>
   </div>
   <div nz-row>
     <div nz-col nzSpan="8" class="details-item">
-      <h4>Raning Status</h4>
+      <h4>{{ "rainingStatus" | translate }}</h4>
       <span>{{ weatherDetails?.rainingStatus }}</span>
     </div>
     <div nz-col nzSpan="8" class="details-item">
-      <h4>Altitude</h4>
+      <h4>{{ "altitude" | translate }}</h4>
       <span>{{ weatherDetails?.altitude }}</span>
     </div>
 
     <div nz-col nzSpan="8" class="details-item">
-      <h4>Network Status</h4>
+      <h4>{{ "networkStatus" | translate }}</h4>
       <span networkStatus [value]="weatherDetails?.networkPower">{{
         weatherDetails?.networkPower
       }}</span>

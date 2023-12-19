@@ -1,8 +1,8 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="city"
-      >City</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="city">{{
+      "city" | translate
+    }}</nz-form-label>
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
@@ -12,9 +12,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="temperature"
-      >Temperature</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="temperature">{{
+      "temperature" | translate
+    }}</nz-form-label>
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
@@ -24,9 +24,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="rainingStatus"
-      >Raining Status</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="rainingStatus">{{
+      "rainingStatus" | translate
+    }}</nz-form-label>
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
@@ -36,9 +36,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="date"
-      >Date</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="date">{{
+      "date" | translate
+    }}</nz-form-label>
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
@@ -48,9 +48,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="networkPower"
-      >Network Power</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="networkPower">{{
+      "networkStatus" | translate
+    }}</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <!-- <input nz-input formControlName="networkPower" id="networkPower" /> -->
       <nz-slider
@@ -62,9 +62,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="altitude"
-      >Altitude</nz-form-label
-    >
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="altitude">{{
+      "altitude" | translate
+    }}</nz-form-label>
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
@@ -76,7 +76,7 @@
   <nz-form-item nz-row class="btn-submit">
     <nz-form-control [nzSpan]="14" [nzOffset]="6">
       <button nz-button nzType="primary" [disabled]="validateForm.invalid">
-        Submit
+        {{ "submit" | translate }}
       </button>
     </nz-form-control>
   </nz-form-item>

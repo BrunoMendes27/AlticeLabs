@@ -13,6 +13,7 @@ import { NzI18nService, en_US, pt_PT } from 'ng-zorro-antd/i18n';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { WeatherService } from '../../services/weather.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'weather-form',
@@ -24,6 +25,7 @@ import { WeatherService } from '../../services/weather.service';
     NzDatePickerModule,
     NzButtonModule,
     NzSliderModule,
+    TranslateModule,
   ],
   templateUrl: './form-weather.component.html',
   styleUrl: './form-weather.component.scss',

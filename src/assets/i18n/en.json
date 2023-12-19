@@ -1,0 +1,11 @@
+{
+  "changeLanguage": "Change Language",
+  "city": "City",
+  "temperature": "Temperature",
+  "date": "Date",
+  "rainingStatus": "Raining Status",
+  "altitude": "Altitude",
+  "networkStatus": "Network Status",
+  "submit": "Submit",
+  "information": "Information"
+}
