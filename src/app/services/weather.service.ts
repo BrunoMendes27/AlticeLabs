@@ -15,7 +15,7 @@ import {
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   private apiUrl =
-    'https://crudcrud.com/api/3699a209aca54886913baed29e3a2c53/weather';
+    'https://crudcrud.com/api/ebe050fb23dd4e2fba9d07ffc65efe5e/weather';
   private weatherData = new BehaviorSubject<WeatherCondition[]>([]);
 
   constructor(private readonly http: HttpClient) {

@@ -6,6 +6,22 @@
         {{ "changeLanguage" | translate }}
       </button>
     </nz-space>
+    <nz-space>
+      <a nz-dropdown [nzDropdownMenu]="menu">
+        Timezone
+        <span nz-icon nzType="down"></span>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item (click)="timezoneClicked(timezonesEnum.utcZero)">
+            UTC +0
+          </li>
+          <li nz-menu-item (click)="timezoneClicked(timezonesEnum.utcThree)">
+            UTC +3
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-space>
   </nz-page-header-extra>
 </nz-page-header>
 <router-outlet></router-outlet>

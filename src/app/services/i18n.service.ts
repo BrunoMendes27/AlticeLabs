@@ -31,6 +31,8 @@ export class I18nService {
     }
   }
 
+  switchTimezone() {}
+
   getTemperatureUnit(): Observable<string> {
     return this.temperatureUnit.asObservable();
   }

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { Router, RouterModule } from '@angular/router';
+import { TimezoneService } from '../../services/timezone.service';
 
 @Component({
   selector: 'city-table',
@@ -22,16 +23,22 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class CityTableComponent implements OnInit {
   data: WeatherCondition[] = [];
+  timezone = '';
 
   constructor(
     private readonly weatherService: WeatherService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly timezoneService: TimezoneService
   ) {}
 
   ngOnInit(): void {
     this.weatherService.getWeatherData().subscribe((item) => {
       this.data = [...item];
       console.log('tabela', item);
+    });
+
+    this.timezoneService.getTimeZone().subscribe((item) => {
+      this.timezone = item;
     });
   }
 

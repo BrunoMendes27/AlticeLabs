@@ -1,16 +1,24 @@
-import 'dayjs/locale/pt';
-import 'dayjs/locale/en';
-import * as dayjs from 'dayjs';
+import { Injectable } from '@angular/core';
+import { Timezone } from '../models/timezone.enum';
+import { BehaviorSubject, Observable } from 'rxjs';
 
+@Injectable({ providedIn: 'root' })
 export class TimezoneService {
-  timezoneLocale = 'en';
+  timezone = new BehaviorSubject<string>('UTC +0');
 
-  setInitialTimezoneLocale() {
-    dayjs.locale(this.timezoneLocale);
+  switchTimezone(timezone: Timezone) {
+    switch (timezone) {
+      case Timezone.utcThree:
+        this.timezone.next('UTC +3');
+        break;
+      case Timezone.utcZero:
+      default:
+        this.timezone.next('UTC +0');
+        break;
+    }
   }
 
-  changeTimezoneLocale() {
-    this.timezoneLocale = this.timezoneLocale === 'en' ? 'pt' : 'en';
-    dayjs.locale(this.timezoneLocale);
+  getTimeZone(): Observable<string> {
+    return this.timezone.asObservable();
   }
 }

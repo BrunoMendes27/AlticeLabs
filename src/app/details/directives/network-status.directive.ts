@@ -11,19 +11,17 @@ import { WeatherCondition } from '../../models/form.model';
   selector: '[networkStatus]',
   standalone: true,
 })
-export class NetworkStatusDirective implements AfterViewInit {
-  @Input() value?: number;
+export class NetworkStatusDirective {
+  @Input() set value(_value: number | undefined) {
+    this.applyColor(_value ?? 3);
+  }
 
   constructor(private readonly el: ElementRef) {}
 
-  ngAfterViewInit(): void {
-    this.applyColor();
-  }
-
-  private applyColor(): void {
+  private applyColor(value: number): void {
     let color: string = '';
-    console.log(this.value);
-    switch (this.value) {
+    console.log(value);
+    switch (value) {
       case 1:
       case 2:
         color = 'red';

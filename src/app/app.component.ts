@@ -6,6 +6,9 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { I18nService } from './services/i18n.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { Timezone } from './models/timezone.enum';
+import { TimezoneService } from './services/timezone.service';
 
 @Component({
   selector: 'app-root',
@@ -16,16 +19,26 @@ import { TranslateModule } from '@ngx-translate/core';
     NzPageHeaderModule,
     NzSpaceModule,
     NzButtonModule,
+    NzDropDownModule,
     TranslateModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private readonly i18nService: I18nService) {}
+  timezonesEnum = Timezone;
+
+  constructor(
+    private readonly i18nService: I18nService,
+    private readonly timezoneService: TimezoneService
+  ) {}
 
   changeLanguage() {
     console.log('aqui');
     this.i18nService.switchLanguage();
+  }
+
+  timezoneClicked(timezone: Timezone) {
+    this.timezoneService.switchTimezone(timezone);
   }
 }
