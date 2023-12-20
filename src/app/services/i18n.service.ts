@@ -1,8 +1,7 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NzI18nService, en_US, pt_PT } from 'ng-zorro-antd/i18n';
 import { BehaviorSubject, Observable } from 'rxjs';
-import dayjs from 'dayjs';
 
 @Injectable({ providedIn: 'root' })
 export class I18nService {
@@ -17,27 +16,30 @@ export class I18nService {
   }
 
   switchLanguage() {
-    let locale = this.i18n.getLocale() == en_US ? pt_PT : en_US;
-    let language = this.translate.currentLang == 'en' ? 'pt' : 'en';
-    console.log(locale);
-    this.i18n.setLocale(locale);
-    console.log('lingua', language);
-    this.translate.use(language);
+    this.setLocale();
+    this.setLanguage();
+  }
 
-    if (language === 'en') {
+  setTemperatureUnit(lang: string) {
+    if (lang === 'en') {
       this.temperatureUnit.next('ºF');
     } else {
       this.temperatureUnit.next('ºC');
     }
   }
 
-  switchTimezone() {}
-
   getTemperatureUnit(): Observable<string> {
     return this.temperatureUnit.asObservable();
   }
 
-  getTimezone() {
-    return this.timezone;
+  private setLocale() {
+    const locale = this.i18n.getLocale() == en_US ? pt_PT : en_US;
+    this.i18n.setLocale(locale);
+  }
+
+  private setLanguage() {
+    const language = this.translate.currentLang == 'en' ? 'pt' : 'en';
+    this.translate.use(language);
+    this.setTemperatureUnit(language);
   }
 }

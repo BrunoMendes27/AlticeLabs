@@ -1,22 +1,23 @@
 <nz-table #basicTable [nzData]="data">
   <thead>
     <tr>
-      <!-- TODOOOOO -->
-      <th>City</th>
-      <th>Temperature</th>
-      <th>Raining Status</th>
-      <th>Date</th>
-      <th>Network power</th>
-      <th>Altitude</th>
+      <th>{{ "city" | translate }}</th>
+      <th>{{ "temperature" | translate }}</th>
+      <th>{{ "rainingStatus" | translate }}</th>
+      <th>{{ "date" | translate }}</th>
+      <th>{{ "networkStatus" | translate }}</th>
+      <th>{{ "altitude" | translate }}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of basicTable.data" (click)="onClick(item._id)">
       <td>{{ item.city }}</td>
-      <td>{{ item.temperature }}</td>
+      <td>{{ item.temperature }} {{ temperatureUnit$ | async }}</td>
       <td>{{ item.rainingStatus }}</td>
       <td>{{ item.date | date : "long" : timezone }}</td>
-      <td>{{ item.networkPower }}</td>
+      <td networkStatus [value]="item?.networkPower" class="network-power">
+        {{ item.networkPower }}
+      </td>
       <td>{{ item.altitude }}</td>
     </tr>
   </tbody>

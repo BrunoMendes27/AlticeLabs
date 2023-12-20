@@ -48,7 +48,7 @@ export const appConfig: ApplicationConfig = {
           case 'en':
             return en_US;
           /** keep the same with angular.json/i18n/locales configuration **/
-          case 'fr':
+          case 'pt':
             return pt_PT;
           default:
             return en_US;

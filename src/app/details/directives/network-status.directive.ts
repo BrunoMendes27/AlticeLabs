@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-} from '@angular/core';
-import { WeatherCondition } from '../../models/form.model';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[networkStatus]',
@@ -13,14 +6,16 @@ import { WeatherCondition } from '../../models/form.model';
 })
 export class NetworkStatusDirective {
   @Input() set value(_value: number | undefined) {
-    this.applyColor(_value ?? 3);
+    this.applyColor(_value ?? this.defaultValue);
   }
+
+  defaultValue = 3;
 
   constructor(private readonly el: ElementRef) {}
 
   private applyColor(value: number): void {
     let color: string = '';
-    console.log(value);
+
     switch (value) {
       case 1:
       case 2:
@@ -35,7 +30,6 @@ export class NetworkStatusDirective {
         color = 'grey';
         break;
     }
-    console.log(color);
 
     this.el.nativeElement.style.color = color;
   }

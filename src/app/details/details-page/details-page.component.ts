@@ -8,8 +8,7 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import { NetworkStatusDirective } from '../directives/network-status.directive';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nService } from '../../services/i18n.service';
-import { Observable } from 'rxjs';
-
+import { TimezoneService } from '../../services/timezone.service';
 @Component({
   selector: 'app-details-page',
   standalone: true,
@@ -27,12 +26,14 @@ import { Observable } from 'rxjs';
 export class DetailsPageComponent implements OnInit {
   id!: string;
   weatherDetails?: WeatherCondition;
-  temperatureUnit$!: Observable<string>;
+  temperatureUnit$ = this.i18nService.getTemperatureUnit();
+  timezone = '';
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly weatherService: WeatherService,
-    private readonly i18nService: I18nService
+    private readonly i18nService: I18nService,
+    private readonly timezoneService: TimezoneService
   ) {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
@@ -43,6 +44,8 @@ export class DetailsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.temperatureUnit$ = this.i18nService.getTemperatureUnit();
+    this.timezoneService
+      .getTimeZone()
+      .subscribe((item) => (this.timezone = item));
   }
 }

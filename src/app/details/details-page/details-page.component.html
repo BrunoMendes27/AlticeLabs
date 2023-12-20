@@ -13,7 +13,7 @@
 
     <div nz-col nzSpan="8" class="details-item">
       <h4>{{ "date" | translate }}</h4>
-      <span>{{ weatherDetails?.date | date : "long" }}</span>
+      <span>{{ weatherDetails?.date | date : "long" : timezone }}</span>
     </div>
   </div>
   <div nz-row>
@@ -28,9 +28,12 @@
 
     <div nz-col nzSpan="8" class="details-item">
       <h4>{{ "networkStatus" | translate }}</h4>
-      <span networkStatus [value]="weatherDetails?.networkPower">{{
-        weatherDetails?.networkPower
-      }}</span>
+      <span
+        networkStatus
+        [value]="weatherDetails?.networkPower"
+        class="network-power"
+        >{{ weatherDetails?.networkPower }}</span
+      >
     </div>
   </div>
 </nz-card>

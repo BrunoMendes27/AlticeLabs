@@ -7,5 +7,11 @@
   "altitude": "Altitude",
   "networkStatus": "Estado da rede",
   "submit": "Submeter",
-  "information": "Informação"
+  "information": "Informação",
+  "timezone": "Fuso Horário",
+  "errorCity": "O valor não é uma cidade válida!",
+  "errorTemperature": "O valor não é uma temperatura válida!",
+  "errorRainingStatus": "O valor não é um estado de precipitação válid!",
+  "errorAltitude": "O valor não é uma altitude válida!",
+  "errorDate": "Data inválida!"
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -34,7 +34,6 @@ export class AppComponent {
   ) {}
 
   changeLanguage() {
-    console.log('aqui');
     this.i18nService.switchLanguage();
   }
 

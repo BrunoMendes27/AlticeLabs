@@ -11,28 +11,26 @@ import {
   take,
   tap,
 } from 'rxjs';
+import { WeatherHandler } from './handlers/weather.handler';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   private apiUrl =
-    'https://crudcrud.com/api/ebe050fb23dd4e2fba9d07ffc65efe5e/weather';
+    'https://crudcrud.com/api/68bdc8025154480da9e3d08c3a27f3a5/weather';
   private weatherData = new BehaviorSubject<WeatherCondition[]>([]);
 
-  constructor(private readonly http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly weatherHandler: WeatherHandler
+  ) {
     this.getData()
       .pipe(take(1))
       .subscribe((item) => this.weatherData.next(item));
   }
 
   submitForm(weatherCondtion: FormGroup<FormItems>): Observable<boolean> {
-    const weatherData: WeatherCondition = {
-      city: weatherCondtion.controls.city.value,
-      temperature: weatherCondtion.controls.temperature.value,
-      rainingStatus: weatherCondtion.controls.rainingStatus.value,
-      date: weatherCondtion.controls.date.value,
-      networkPower: weatherCondtion.controls.networkPower.value,
-      altitude: weatherCondtion.controls.altitude.value,
-    };
+    const weatherData =
+      this.weatherHandler.getWeatherCondition(weatherCondtion);
 
     return this.http.post<WeatherCondition>(this.apiUrl, weatherData).pipe(
       tap(() =>

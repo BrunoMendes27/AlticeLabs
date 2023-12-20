@@ -6,7 +6,7 @@
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
-      nzErrorTip="The input is not valid City!"
+      [nzErrorTip]="'errorCity' | translate"
     >
       <input nz-input formControlName="city" id="city" />
     </nz-form-control>
@@ -18,7 +18,7 @@
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
-      nzErrorTip="The input is not valid Temperature!"
+      [nzErrorTip]="'errorTemperature' | translate"
     >
       <input nz-input formControlName="temperature" id="temperature" />
     </nz-form-control>
@@ -30,7 +30,7 @@
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
-      nzErrorTip="The input is not valid Raining Status!"
+      [nzErrorTip]="'errorRainingStatus' | translate"
     >
       <input nz-input formControlName="rainingStatus" id="rainingStatus" />
     </nz-form-control>
@@ -42,7 +42,7 @@
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
-      nzErrorTip="The input is not a valid date!"
+      [nzErrorTip]="'errorDate' | translate"
     >
       <nz-date-picker formControlName="date"></nz-date-picker>
     </nz-form-control>
@@ -52,7 +52,6 @@
       "networkStatus" | translate
     }}</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
-      <!-- <input nz-input formControlName="networkPower" id="networkPower" /> -->
       <nz-slider
         [nzMin]="1"
         [nzMax]="5"
@@ -68,7 +67,7 @@
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
-      nzErrorTip="The input is not valid Altitude!"
+      [nzErrorTip]="'errorAltitude' | translate"
     >
       <input nz-input formControlName="altitude" id="altitude" />
     </nz-form-control>

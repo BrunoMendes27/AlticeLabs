@@ -7,5 +7,11 @@
   "altitude": "Altitude",
   "networkStatus": "Network Status",
   "submit": "Submit",
-  "information": "Information"
+  "information": "Information",
+  "timezone": "Timezone",
+  "errorCity": "The input is not valid City!",
+  "errorTemperature": "The input is not valid Temperature!",
+  "errorRainingStatus": "The input is not valid Raining Status!",
+  "errorAltitude": "The input is not valid altitude!",
+  "errorDate": "The input is a not valid date!"
 }
